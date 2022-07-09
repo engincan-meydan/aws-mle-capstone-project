@@ -146,11 +146,6 @@ def train(model, train_loader, validation_loader, criterion, optimizer, device, 
                             samples,
                             100 * accuracy
                         ))
-
-#             epoch_loss = running_loss / len(image_dataset[phase].dataset)
-#             epoch_acc = running_corrects / len(image_dataset[phase].dataset) 
-#             epoch_loss = running_loss // samples
-#             epoch_acc = running_corrects // samples
             
             if phase=='validation':
                 epoch_loss = running_loss // samples
@@ -158,26 +153,7 @@ def train(model, train_loader, validation_loader, criterion, optimizer, device, 
                     best_loss=epoch_loss
                 else:
                     loss_counter+=1
-            
-#         if loss_counter==1:
-#             print(f'Stop the training at epoch: {epoch + 1} as the loss starts to increase')
-#             break
-            
-            
-#             epoch_loss = running_loss // len(image_dataset[phase])
-#             epoch_acc = running_corrects // len(image_dataset[phase])
-            
-#             if phase=='validation':
-#                 if epoch_loss<best_loss:
-#                     best_loss=epoch_loss
-#                 else:
-#                     loss_counter+=1
 
-
-#             logger.info('{} loss: {:.4f}, acc: {:.4f}, best loss: {:.4f}'.format(phase,
-#                                                                                  epoch_loss,
-#                                                                                  epoch_acc,
-#                                                                                  best_loss))
         if loss_counter==1:
             print(f'Stop the training at epoch: {epoch + 1} as the loss starts to increase')
             break
